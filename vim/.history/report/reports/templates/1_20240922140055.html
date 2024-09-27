@@ -1,0 +1,157 @@
+<html>
+    <head>
+        
+    <style>
+        html {
+            background-color: #570911;
+        }
+        h4 {
+            text-align: left;
+        }
+        .container {
+            max-width: 300%;
+            
+            max-height: 300%; 
+            background-color: rgb(255, 255, 255);
+        }
+        fieldset {
+            height: fit-content;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+        .navbar ul {
+            display: flex;
+            list-style-type: none;
+            background-color: rgb(255, 255, 255);
+            padding: 0px;
+            margin: 0px;
+            overflow: hidden;
+            width: 100%;
+        }
+        .logo{
+            height: 120px;
+            width: 120px;
+            padding:10px;
+            
+            
+        }
+        .forms{
+            padding: 20px;
+            padding-top: 40px;
+        }
+        .navbar a {
+            color: rgb(0, 0, 0);
+            text-decoration: none;
+            padding: 10px;
+            display: block;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            text-align: center;
+        }
+        .navbar a:hover {
+            background-color: rgb(255, 255, 255);
+        }
+        .navbar li {
+            flex-grow: 1;
+        }
+       
+        .grid-container {
+            align-items: center;
+            display: grid;
+            width: 70%; 
+            height: 50vh;
+            padding-top: 5vh;
+            padding-left: 10vh;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            gap: 10px;
+        }
+        .grid-item {
+            background-color: rgb(255, 255, 255);
+            display: flex;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            font-size: 24px;
+            padding-left: 5vh;
+            color: white;
+            border-radius: 8px;
+            border-color: black;
+        }
+        .bt {
+            padding-left: 18vh;
+            padding-top: 12vh;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+        .head{
+            padding-top: 50px;
+            font-size: 30px;
+            color:  #570911;;
+            align-content:normal;
+            text-align: center;
+            
+
+        }
+        
+        
+        
+
+    </style>
+    </head>
+    <body>
+        <div class="container">
+            
+                <nav class="navbar" >
+                    <ul>
+                        <li class ="head" style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"><a href="https://www.vimalacollege.edu.in/"  ><img src="https://www.vimalacollege.edu.in/images/prelder-logo2.png" class="logo" ></a>Vimala College (Autonomous), Thrissur </a></li>
+                    </ul>
+                </nav>
+                    <div class="forms">
+                        <form method="post"  id="myForm">
+                            {% csrf_token %} 
+                            <div style="padding-left: 20px; ">
+                                <label for="dept">Name of The Department : </label>
+                                <br><br>
+                                <input type="text" id="dept" name="dept" style="width: 200px;margin-bottom: 20px;">
+                            </div>
+                            <div style="padding-left: 20px; padding-top: 10px;">
+                                <label for="Dooc">Title of the Activity/Event : </label>
+                                <br><br>
+                                <input type="text" id="Dooc" name="Dooc" maxlength="25"style="width: 200px;margin-bottom: 20px;">
+                            </div>
+                            <div style="padding-left: 20px; padding-top: 10px;">
+                                <label for="Priority">Priority:</label>
+                                <select id="Priority" name="Priority">
+                                    <option value="Routine">Routine</option>
+                                    <option value="Emergency">Emergency</option>
+                                    <option value="Urgent">Urgent</option>
+                                    
+                                </select>
+                            </div>
+                            <br><br>
+                            <div style="padding-left: 20px; padding-top: 10px;">
+                                <label for="sprno">SPR No. [Max: 25 chars. Only alphanumeric(A-Z,0-9) Underscore(_) & slash(/) allowed. No white spaces.]</label>
+                                <br><br>
+                                <input type="hidden" name="spp" value="{{ spp }}">
+                
+                                <input type="text" id="sprno" name="sprno" maxlength="25"style="width: 200px;margin-bottom: 20px;">
+                            </div>
+                            <div style="padding-left: 20px; padding-top: 10px;">
+                                <label for="memono">Memo No. [Max. 25 characters]</label>
+                                <br><br>
+                                <input type="text" id="memono" name="memono" maxlength="25"style="width: 200px;margin-bottom: 20px;">
+                            </div>
+                            <div style="padding-left: 20px; padding-top: 10px;">
+                                <label for="project">Project* [Max. 25 characters]</label>
+                                <br><br>
+                                <input type="text" id="project" name="project" maxlength="25">
+                            </div>
+                            <div style="padding-left: 20px; padding-top: 10px;">
+                                <label for="subsystem">Subsystem* [Max. 25 characters]</label>
+                                <br><br>
+                                <input type="text" id="subsystem" name="subsystem" maxlength="25">
+                            </div>
+                           
+                        </form>
+                    </div>
+                
+            </div>
+        </div>
+    </body>
+</html>

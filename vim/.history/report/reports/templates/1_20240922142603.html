@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Two-Sided Form</title>
+    <style>
+        html {
+            background-color: #570911;
+        }
+        h4 {
+            text-align: left;
+        }
+        .container {
+            max-width: 90%;
+            background-color: rgb(255, 255, 255);
+            display: flex;
+            justify-content: center;
+            margin: auto;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .forms {
+            display: flex;
+            width: 100%;
+        }
+        .side {
+            flex: 1;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .navbar ul {
+            display: flex;
+            list-style-type: none;
+            background-color: rgb(255, 255, 255);
+            padding: 0;
+            margin: 0;
+            width: 100%;
+        }
+        .logo {
+            height: 120px;
+            width: 120px;
+            padding: 10px;
+        }
+        .navbar a {
+            color: rgb(0, 0, 0);
+            text-decoration: none;
+            padding: 10px;
+            display: block;
+            text-align: center;
+        }
+        .navbar li {
+            flex-grow: 1;
+        }
+        .head {
+            font-size: 30px;
+            color: #570911;
+            text-align: center;
+            padding: 20px;
+        }
+        input, select, textarea {
+            width: calc(100% - 20px);
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav class="navbar">
+            <ul>
+                <li class="head"><a href="https://www.vimalacollege.edu.in/"><img src="https://www.vimalacollege.edu.in/images/prelder-logo2.png" class="logo"></a>Vimala College (Autonomous), Thrissur</li>
+            </ul>
+        </nav>
+        <div class="forms">
+            <div class="side">
+                
+                <form method="post" id="myForm1">
+                    <label for="dept">Name of The Department:</label>
+                    <input type="text" id="dept" name="dept" required>
+
+                    <label for="Dooc">Title of the Activity/Event:</label>
+                    <input type="text" id="Dooc" name="Dooc" maxlength="25" required>
+
+                    <label for="nat">Nature:</label>
+                    <select id="nat" name="nat" required>
+                        <option value="int">International</option>
+                        <option value="nati">National</option>
+                        <option value="stat">State</option>
+                        <option value="reg">Regional</option>
+                        <option value="ins">Institutional</option>
+                    </select>
+
+                    <label for="date">Date:</label>
+                    <input type="date" id="date" name="date" required>
+
+                    <label for="br">Brief Report:</label>
+                    <textarea id="br" name="br" style="width: 400px;height: 200px;" required></textarea>
+                </form>
+            </div>
+            <div class="side">
+                
+                <form method="post" id="myForm2">
+                    <label for="colu">Collaborating Units / Institutes:</label>
+                    <input type="text" id="colu" name="colu" maxlength="25" required>
+
+                    <label for="fund">Name of Funding Agency:</label>
+                    <input type="text" id="fund" name="fund" maxlength="25" required>
+
+                    <label for="nop">Number of Participants:</label>
+                    <input type="text" id="nop" name="nop" maxlength="25" required>
+
+                    <label for="fco">Faculty Coordinator:</label>
+                    <input type="text" id="fco" name="fco" maxlength="25" required>
+
+                    <label for="sco">Student Coordinator:</label>
+                    <input type="text" id="sco" name="sco" maxlength="25" required>
+
+                    
+
+                </form>
+                
+            </div>
+            
+        </div>
+        <button type="submit">Submit</button>
+
+    </div>
+</body>
+</html>

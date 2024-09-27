@@ -1,0 +1,108 @@
+<html>
+    <head>
+        
+    <style>
+        html {
+            overflow: hidden;
+            background-color: rgb(255, 255, 255);
+        }
+        h4 {
+            text-align: left;
+        }
+        .container {
+            max-width: 80%;
+            margin: auto;
+            height: 85vh; 
+            background-color: rgb(193, 193, 193);
+        }
+        fieldset {
+            height: fit-content;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+        .navbar ul {
+            display: flex;
+            list-style-type: none;
+            background-color: grey;
+            padding: 0px;
+            margin: 0px;
+            overflow: hidden;
+            width: 100%;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 15px;
+            display: block;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            text-align: center;
+        }
+        .navbar a:hover {
+            background-color: rgb(101, 101, 101);
+        }
+        .navbar li {
+            flex-grow: 1;
+        }
+        .grid-container {
+            align-items: center;
+            display: grid;
+            width: 70%; 
+            height: 50vh;
+            padding-top: 5vh;
+            padding-left: 10vh;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            gap: 10px;
+        }
+        .grid-item {
+            background-color: rgb(193, 193, 193);
+            display: flex;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            font-size: 24px;
+            padding-left: 5vh;
+            color: white;
+            border-radius: 8px;
+        }
+        .bt {
+            padding-left: 18vh;
+            padding-top: 12vh;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+        .exit {
+            text-align: center;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+        .exitb {
+            margin-left: 2vh;
+            background-color: #f86e64;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            font-size: 16px;
+        }
+        
+        
+
+    </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="header">
+                <nav class="navbar" >
+                    <ul>
+                        <li class="selected"><a href="/" onclick="handleTabClick(event, this)">Build info</a></li>
+                        <li><a href="/references" onclick="handleTabClick(event, this)">References</a></li>
+                        <li><a href="/problems" onclick="handleTabClick(event, this)">Problems</a></li>
+                        <li><a href="/stakeholders" onclick="handleTabClick(event, this)">Stakeholders</a></li>
+                        <li><a href="/constants" onclick="handleTabClick(event, this)">Constants</a></li>
+                        <li><a href="/claw" onclick="handleTabClick(event, this)">CLAW Tables</a></li>
+                        <li><a href="/nonclaw" onclick="handleTabClick(event, this)">Non-CLAW Tables</a></li>
+                        <li><a href="/annexure" onclick="handleTabClick(event, this)">CLAW/Annexure</a></li>
+                        <li><a href="/submit" onclick="handleTabClick(event, this)">Submit</a></li> 
+                    </ul>
+                </nav>
+            </div>
+            <h1>hi</h1>
+        </div>
+    </body>
+</html>

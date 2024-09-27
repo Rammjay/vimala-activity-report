@@ -1,0 +1,175 @@
+<html>
+    <head>
+        
+    <style>
+        html {
+            background-color: #570911;
+        }
+        h4 {
+            text-align: left;
+        }
+        .container {
+            max-width: 300%;
+            
+            max-height: 300%; 
+            background-color: rgb(255, 255, 255);
+        }
+        fieldset {
+            height: fit-content;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+        .navbar ul {
+            display: flex;
+            list-style-type: none;
+            background-color: rgb(255, 255, 255);
+            padding: 0px;
+            margin: 0px;
+            overflow: hidden;
+            width: 100%;
+        }
+        .logo{
+            height: 120px;
+            width: 120px;
+            padding:10px;
+            
+            
+        }
+        .forms{
+            padding: 20px;
+            padding-top: 40px;
+        }
+        .navbar a {
+            color: rgb(0, 0, 0);
+            text-decoration: none;
+            padding: 10px;
+            display: block;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            text-align: center;
+        }
+        .navbar a:hover {
+            background-color: rgb(255, 255, 255);
+        }
+        .navbar li {
+            flex-grow: 1;
+        }
+       
+        .grid-container {
+            align-items: center;
+            display: grid;
+            width: 70%; 
+            height: 50vh;
+            padding-top: 5vh;
+            padding-left: 10vh;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            gap: 10px;
+        }
+        .grid-item {
+            background-color: rgb(255, 255, 255);
+            display: flex;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            font-size: 24px;
+            padding-left: 5vh;
+            color: white;
+            border-radius: 8px;
+            border-color: black;
+        }
+        .bt {
+            padding-left: 18vh;
+            padding-top: 12vh;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+        .head{
+            padding-top: 50px;
+            font-size: 30px;
+            color:  #570911;;
+            align-content:normal;
+            text-align: center;
+            
+
+        }
+        
+        
+        
+
+    </style>
+    </head>
+    <body>
+        <div class="container">
+            
+                <nav class="navbar" >
+                    <ul>
+                        <li class ="head" style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"><a href="https://www.vimalacollege.edu.in/"  ><img src="https://www.vimalacollege.edu.in/images/prelder-logo2.png" class="logo" ></a>Vimala College (Autonomous), Thrissur </a></li>
+                    </ul>
+                </nav>
+                    <div class="forms">
+                        <form method="post"  id="myForm">
+                            {% csrf_token %} 
+                            <div style="padding-left: 20px; ">
+                                <label for="dept">Name of The Department : </label>
+                                <br><br>
+                                <input type="text" id="dept" name="dept" style="width: 200px;margin-bottom: 20px;">
+                            </div>
+                            <div style="padding-left: 20px; padding-top: 10px;">
+                                <label for="Dooc">Title of the Activity/Event : </label>
+                                <br><br>
+                                <input type="text" id="Dooc" name="Dooc" maxlength="25"style="width: 200px;margin-bottom: 20px;">
+                            </div>
+                            <div style="padding-left: 20px; padding-top: 10px;">
+                                <label for="nat">Nature</label>
+                                <select id="nat" name="nat">
+                                    <option value="int">International</option>
+                                    <option value="nati">National</option>
+                                    <option value="stat">State</option>
+                                    <option value="reg">Regional</option>
+                                    <option value="ins">Institutional</option>
+=                                    
+                                </select>
+                            </div>
+                            <br><br>
+                            <div style="padding-left: 20px; padding-top: 10px;">
+                                <label for="date">Date :</label>
+                                <br><br>
+                
+                                <input type="date" id="date" name="date" style="width: 200px;margin-bottom: 20px;">
+                            </div>
+                            <div style="padding-left: 20px; padding-top: 10px;">
+                                <label for="colu">Collaborating Units / Institutes : </label>
+                                <br><br>
+                                <input type="text" id="colu" name="colu" maxlength="25"style="width: 200px;margin-bottom: 20px;">
+                            </div>
+                            <div style="padding-left: 20px; padding-top: 10px;">
+                                <label for="fund">Name of Funding Agency : </label>
+                                <br><br>
+                                <input type="text" id="fund" name="fund" maxlength="25"style="width: 200px;margin-bottom: 20px;">
+                            </div>
+                            <div style="padding-left: 20px; padding-top: 10px;">
+                                <label for="nop">Number of Participants : </label>
+                                <br><br>
+                                <input type="text" id="nop" name="nop" maxlength="25"style="width: 200px;margin-bottom: 20px;">
+                            </div>
+
+                            <div style="padding-left: 20px; padding-top: 10px;">
+                                
+                                <label for="fco">Faculty Coordinator : </label>
+                                <br><br>
+                                <input type="text" id="fco" name="fco" maxlength="25"style="width: 200px;margin-bottom: 20px;">
+                            </div>
+                            <div style="padding-left: 20px; padding-top: 10px;">
+                                <label for="sco">Student Coordinator : </label>
+                                <br><br>
+                                <input type="text" id="sco" name="sco" maxlength="25"style="width: 200px;margin-bottom: 20px;">
+                            </div>
+                            <div style="padding-left: 20px; padding-top: 10px;">
+                                <label for="br">Brief Report : </label>
+                                <textarea id="br" name="br" maxlength="25"style="width: 200px;margin-bottom: 20px;">
+                            </div>
+                            
+                           
+                        </form>
+                    </div>
+                
+            </div>
+        </div>
+    </body>
+</html>

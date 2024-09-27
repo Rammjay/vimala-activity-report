@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activity Report | Vimala College (Autonomous), Thrissur</title>
+    <style>
+        /* Your existing styles */
+        html {
+            background-image: url("https://www.vimalacollege.edu.in/images/inner-banner.jpg"),
+                              url("https://www.vimalacollege.edu.in/uploads_new/topmenu/banner/campuslifebanner_20210413121942..jpg"),
+                              url("https://www.vimalacollege.edu.in/uploads_new/topmenu/banner/vim-bnner5_20210413023449..jpg");
+            background-size: cover; 
+            background-position: center; 
+            background-repeat: no-repeat; 
+            animation: changeBackground 15s infinite; 
+        }
+
+        @keyframes changeBackground {
+            0% { background-image: url("https://www.vimalacollege.edu.in/images/inner-banner.jpg"); }
+            50% { background-image: url("https://www.vimalacollege.edu.in/uploads_new/topmenu/banner/campuslifebanner_20210413121942..jpg"); }
+            100% { background-image: url("https://www.vimalacollege.edu.in/uploads_new/topmenu/banner/vim-bnner5_20210413023449..jpg"); }
+        }
+
+        /* Additional styles here */
+        h4 {
+            text-align: left;
+        }
+        .container {
+            max-width: 90%;
+            background-color: rgba(255, 255, 255, 0.735);
+            display: flex;
+            justify-content: center;
+            margin: auto;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .forms {
+            display: flex;
+            width: 100%;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+        .side {
+            flex: 1;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .navbar ul {
+            display: flex;
+            list-style-type: none;
+            background-color: rgba(255, 255, 255, 0.735);
+            padding: 0;
+            margin: 0;
+            width: 100%;
+        }
+        .logo {
+            height: 120px;
+            width: 120px;
+            padding: 10px;
+            background-color: (255, 255, 255, 0.735);
+        }
+        .navbar a {
+            color: rgb(0, 0, 0);
+            text-decoration: none;
+            padding: 10px;
+            display: block;
+            text-align: center;
+        }
+        .navbar li {
+            flex-grow: 1;
+        }
+        .head {
+            min-height: 612px;
+            max-width: 400px;
+            font-size: 30px;
+            color: #570911;
+            text-align: center;
+            padding: 20px;
+        }
+        input, select, textarea {
+            width: calc(100% - 20px);
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    {% load static %}
+    <div class="container">
+        <nav class="navbar">
+            <ul>
+                <li class="head"><a href="https://www.vimalacollege.edu.in/"><img src="https://www.vimalacollege.edu.in/images/prelder-logo2.png" class="logo"></a>Vimala College (Autonomous), Thrissur</li>
+            </ul>
+        </nav>
+        <div class="forms">
+            <div class="side">
+                <form method="post" id="myForm1" action="{% url 'submit' %}" >
+                    {% csrf_token %} 
+                    <label for="dept">Name of The Department:</label>
+                    <input type="text" id="dept" name="dept" required>
+
+                    <label for="toa">Title of the Activity/Event:</label>
+                    <input type="text" id="toa" name="toa"  required>
+
+                    <label for="nat">Nature:</label>
+                    <select id="nat" name="nat" required>
+                        <option value="International">International</option>
+                        <option value="National">National</option>
+                        <option value="State">State</option>
+                        <option value="Regional">Regional</option>
+                        <option value="Institutional">Institutional</option>
+                    </select>
+
+                    <label for="date">Date:</label>
+                    <input type="date" id="date" name="date" required>
+
+                    <label for="time">Time:</label>
+                    <input type="text" id="time" name="time" required>
+                    
+                    <label for="br">Brief Report:</label>
+                    <textarea id="br" name="br" style="width: 400px; height: 155px;" required></textarea>
+                
+            </div>
+            <div class="side">
+                
+                <label for="rp">Resource Person:</label>
+                <input type="text" id="rp" name="rp"  required>
+
+                <label for="colu">Collaborating Units / Institutes:</label>
+                <input type="text" id="colu" name="colu"  required>
+
+                <label for="fund">Name of Funding Agency:</label>
+                <input type="text" id="fund" name="fund"  required>
+
+                <label for="nop">Number of Participants:</label>
+                <input type="text" id="nop" name="nop"  required>
+
+                <label for="fco">Faculty Coordinator:</label>
+                <input type="text" id="fco" name="fco"  required>
+
+                <label for="sco">Student Coordinator:</label>
+                <input type="text" id="sco" name="sco"  required>
+
+                <label for="images">Upload Flyer:</label>
+                <input type="file" id="images" name="images" accept="image/*" multiple required>
+
+                <label for="additional-images">Upload Additional Images:</label>
+                <input type="file" id="additional-images" name="additional-images" accept="image/*" multiple required>
+                    
+                <button type="button" onclick="handleSubmit()">Submit</button>
+                </form>
+                
+            </div>
+            
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/pdf-lib@latest/dist/pdf-lib.min.js"></script>
+    <script>
+       async function generatePDF() {
+           try {
+               const response = await fetch("{% static 'assets/1.pdf' %}");
+               if (!response.ok) throw new Error(`Failed to fetch PDF template. Status: ${response.status}`);
+
+               const existingPdfBytes = await response.arrayBuffer();
+               const pdfDoc = await PDFLib.PDFDocument.load(existingPdfBytes);
+               const templatePage = pdfDoc.getPage(0);
+               const fontSize = 10;
+               const color = PDFLib.rgb(0, 0, 0);
+               const font = await pdfDoc.embedFont(PDFLib.StandardFonts.Helvetica);
+               
+               // Get form values
+               const formValues = {
+                   toa: document.getElementById('toa').value,
+                   time: document.getElementById('time').value,
+                   nat: document.getElementById('nat').value,
+                   date: document.getElementById('date').value,
+                   dept: document.getElementById('dept').value,
+                   rp: document.getElementById('rp').value,
+                   colu: document.getElementById('colu').value,
+                   fund: document.getElementById('fund').value,
+                   nop: document.getElementById('nop').value,
+                   fco: document.getElementById('fco').value,
+                   sco: document.getElementById('sco').value,
+                   br: document.getElementById('br').value
+               };
+
+               // Truncate Brief Report if it exceeds 90 characters
+               const maxLength = 90;
+               const truncatedBr = formValues.br.length > maxLength ? formValues.br.substring(0, maxLength) : formValues.br;
+               const remainingBr = formValues.br.length > maxLength ? formValues.br.substring(maxLength) : '';
+
+               // Add text data to the PDF template
+               templatePage.drawText(`${formValues.toa || ''}`, { x: 310, y: 640, size: fontSize, color });
+               templatePage.drawText(`${formValues.nat || ''}`, { x: 310, y: 617, size: fontSize, color });
+               templatePage.drawText(`${formValues.dept || ''}`, { x: 310, y: 670, size: fontSize, color });
+               templatePage.drawText(`${formValues.time || ''}`, { x: 310, y: 580, size: fontSize, color });
+               templatePage.drawText(`${formValues.date || ''}`, { x: 310, y: 598, size: fontSize, color });
+               templatePage.drawText(`${truncatedBr || ''}`, { x: 50, y: 370, size: fontSize, color });
+               if (remainingBr) {
+                   templatePage.drawText(`${remainingBr}`, { x: 50, y: 360, size: fontSize, color });
+               }
+               templatePage.drawText(`${formValues.rp || ''}`, { x: 310, y: 555, size: fontSize, color });
+               templatePage.drawText(`${formValues.colu || ''}`, { x: 310, y: 510, size: fontSize, color });
+               templatePage.drawText(`${formValues.fund || ''}`, { x: 310, y: 487, size: fontSize, color });
+               templatePage.drawText(`${formValues.nop || ''}`, { x: 310, y: 470, size: fontSize, color });
+               templatePage.drawText(`${formValues.fco || ''}`, { x: 310, y: 440, size: fontSize, color });
+               templatePage.drawText(`${formValues.sco || ''}`, { x: 310, y: 427, size: fontSize, color });
+
+               // Create a new page for the first set of images
+               let imagePage = pdfDoc.addPage([600, 800]); // Create a new page
+               const imagesInput = document.getElementById('images');
+               const imageFiles = imagesInput.files;
+               const desiredWidth = 300; // Width in points
+               let yPosition = 250; // Starting position for the first image (adjust as needed)
+
+               for (let i = 0; i < imageFiles.length; i++) {
+                   const imageFile = imageFiles[i];
+                   const imageBytes = await imageFile.arrayBuffer();
+                   const image = await pdfDoc.embedPng(imageBytes);
+                   const finalHeight = 450;
+
+                   imagePage.drawImage(image, {
+                       x: 150,
+                       y: yPosition,
+                       width: desiredWidth,
+                       height: finalHeight,
+                   });
+
+                   yPosition -= finalHeight + 20; // Move down for the next image
+               }
+
+               // Create a new page for the additional images
+               let additionalImagePage = pdfDoc.addPage([600, 800]); // Create another new page
+               const additionalImagesInput = document.getElementById('additional-images');
+               const additionalImageFiles = additionalImagesInput.files;
+               yPosition = 250; // Reset yPosition for additional images
+
+               for (let i = 0; i < additionalImageFiles.length; i++) {
+                   const additionalImageFile = additionalImageFiles[i];
+                   const additionalImageBytes = await additionalImageFile.arrayBuffer();
+                   const additionalImage = await pdfDoc.embedPng(additionalImageBytes);
+                   const finalHeight = 450;
+
+                   additionalImagePage.drawImage(additionalImage, {
+                       x: 150,
+                       y: yPosition,
+                       width: desiredWidth,
+                       height: finalHeight,
+                   });
+
+                   yPosition -= finalHeight + 20; // Move down for the next image
+               }
+
+               // Serialize the PDF to bytes
+               const pdfBytes = await pdfDoc.save();
+
+               // Trigger file download
+               const blob = new Blob([pdfBytes], { type: 'application/pdf' });
+               const url = URL.createObjectURL(blob);
+               const a = document.createElement('a');
+               a.href = url;
+               a.download = 'generated.pdf';
+               a.click();
+               URL.revokeObjectURL(url);
+               document.getElementById('myForm1').reset();
+           } catch (error) {
+               console.error('Error generating PDF:', error);
+           }
+       }
+
+       function handleSubmit() {
+           const form = document.getElementById('myForm1');
+           const formData = new FormData(form);
+           fetch(form.action, {
+               method: form.method,
+               body: formData,
+               headers: {
+                   'X-CSRFToken': '{{ csrf_token }}', // Ensure this matches your CSRF setup
+               },
+           })
+           .then(() => generatePDF())
+           .catch(error => console.error('Error submitting form:', error));
+       }
+    </script>
+</body>
+</html>

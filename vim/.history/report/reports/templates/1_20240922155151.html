@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activity Report | Vimala College (Autonomous), Thrissur</title>
+    <style>
+        /* Your existing styles */
+    </style>
+</head>
+<body>
+    {% load static %}
+    <div class="container">
+        <nav class="navbar">
+            <ul>
+                <li class="head"><a href="https://www.vimalacollege.edu.in/"><img src="https://www.vimalacollege.edu.in/images/prelder-logo2.png" class="logo"></a>Vimala College (Autonomous), Thrissur</li>
+            </ul>
+        </nav>
+        <div class="forms">
+            <div class="side">
+                <form method="post" id="myForm1" action="{% url 'submit' %}">
+                    {% csrf_token %} 
+                    <label for="dept">Name of The Department:</label>
+                    <input type="text" id="dept" name="dept" required>
+                    <label for="toa">Title of the Activity/Event:</label>
+                    <input type="text" id="toa" name="toa" maxlength="25" required>
+                    <label for="nat">Nature:</label>
+                    <select id="nat" name="nat" required>
+                        <option value="International">International</option>
+                        <option value="National">National</option>
+                        <option value="State">State</option>
+                        <option value="Regional">Regional</option>
+                        <option value="Institutional">Institutional</option>
+                    </select>
+                    <label for="date">Date:</label>
+                    <input type="date" id="date" name="date" required>
+                    <label for="time">Time:</label>
+                    <input type="text" id="time" name="time" required>
+                    <label for="br">Brief Report:</label>
+                    <textarea id="br" name="br" style="width: 400px;height: 155px;" required></textarea>
+                </div>
+                <div class="side">
+                    <label for="rp">Resource Person:</label>
+                    <input type="text" id="rp" name="rp" maxlength="25" required>
+                    <label for="colu">Collaborating Units / Institutes:</label>
+                    <input type="text" id="colu" name="colu" maxlength="25" required>
+                    <label for="fund">Name of Funding Agency:</label>
+                    <input type="text" id="fund" name="fund" maxlength="25" required>
+                    <label for="nop">Number of Participants:</label>
+                    <input type="text" id="nop" name="nop" maxlength="25" required>
+                    <label for="fco">Faculty Coordinator:</label>
+                    <input type="text" id="fco" name="fco" maxlength="25" required>
+                    <label for="sco">Student Coordinator:</label>
+                    <input type="text" id="sco" name="sco" maxlength="25" required>
+                    <button type="button" onclick="handleSubmit()">Submit</button>
+                </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/pdf-lib@latest/dist/pdf-lib.min.js"></script>
+    <script>
+        async function generatePDF() {
+            try {
+                console.log('Starting PDF generation...');
+
+                const response = await fetch("{% static 'assets/doc.pdf' %}");
+                if (!response.ok) {
+                    throw new Error(`Failed to fetch PDF template. Status: ${response.status}`);
+                }
+
+                const existingPdfBytes = await response.arrayBuffer();
+                const pdfDoc = await PDFLib.PDFDocument.load(existingPdfBytes);
+                const templatePage = pdfDoc.getPage(0);
+
+                const fontSize = 12;
+                const color = PDFLib.rgb(0, 0, 0);
+                const font = await pdfDoc.embedFont(PDFLib.StandardFonts.Helvetica);
+                
+                const toa = document.getElementById('toa').value;
+                const nat = document.getElementById('nat').value;
+                const date = document.getElementById('date').value;
+                const dept = document.getElementById('dept').value;
+                const br = document.getElementById('br').value;
+
+                templatePage.drawText(`${toa}`, { x: 100, y: 614, size: fontSize, color });
+                templatePage.drawText(`${nat}`, { x: 120, y: 514, size: fontSize, color });
+                templatePage.drawText(`${dept}`, { x: 130, y: 414, size: fontSize, color });
+                templatePage.drawText(`${date}`, { x: 140, y: 714, size: fontSize, color });
+                templatePage.drawText(`${br}`, { x: 160, y: 800, size: fontSize, color });
+
+                const pdfBytes = await pdfDoc.save();
+                const blob = new Blob([pdfBytes], { type: 'application/pdf' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = 'generated.pdf';
+                a.click();
+                URL.revokeObjectURL(url);
+            } catch (error) {
+                console.error('Error generating PDF:', error);
+            }
+        }
+
+        function handleSubmit() {
+            const form = document.getElementById('myForm1');
+            const formData = new FormData(form);
+            
+            // Submit the form using Fetch API
+            fetch(form.action, {
+                method: form.method,
+                body: formData,
+                headers: {
+                    'X-CSRFToken': '{{ csrf_token }}', // If using Django CSRF protection
+                },
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Form submission failed');
+                }
+                return response.json(); // Assuming the server responds with JSON
+            })
+            .then(data => {
+                console.log('Form submitted successfully:', data);
+                // Now generate the PDF after successful form submission
+                generatePDF();
+            })
+            .catch(error => {
+                console.error('Error submitting form:', error);
+            });
+        }
+    </script>
+</body>
+</html>

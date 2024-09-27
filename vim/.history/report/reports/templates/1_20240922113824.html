@@ -1,0 +1,102 @@
+<html>
+    <head>
+        
+    <style>
+        html {
+            background-color: #dc3545;
+        }
+        h4 {
+            text-align: left;
+        }
+        .container {
+            max-width: 100%;
+            
+            height: 100%; 
+            background-color: rgb(255, 255, 255);
+        }
+        fieldset {
+            height: fit-content;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+        .navbar ul {
+            display: flex;
+            list-style-type: none;
+            background-color: rgb(255, 255, 255);
+            padding: 0px;
+            margin: 0px;
+            overflow: hidden;
+            width: 100%;
+        }
+        .logo{
+            height: 100px;
+            width: 100px;
+            padding:20px;
+            padding-left: 40px;
+        }
+        .navbar a {
+            color: rgb(0, 0, 0);
+            text-decoration: none;
+            padding: 15px;
+            display: block;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            text-align: center;
+        }
+        .navbar a:hover {
+            background-color: rgb(158, 154, 154);
+        }
+        .navbar li {
+            flex-grow: 1;
+        }
+        .grid-container {
+            align-items: center;
+            display: grid;
+            width: 70%; 
+            height: 50vh;
+            padding-top: 5vh;
+            padding-left: 10vh;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            gap: 10px;
+        }
+        .grid-item {
+            background-color: rgb(255, 255, 255);
+            display: flex;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            font-size: 24px;
+            padding-left: 5vh;
+            color: white;
+            border-radius: 8px;
+            border-color: black;
+        }
+        .bt {
+            padding-left: 18vh;
+            padding-top: 12vh;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+        
+        
+        
+
+    </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="header">
+                <nav class="navbar" >
+                    <ul>
+                        <li class="selected"><a href="https://www.vimalacollege.edu.in/"><img src="https://www.vimalacollege.edu.in/images/prelder-logo2.png" class="logo"></li>
+                        <li><a href="/references" onclick="handleTabClick(event, this)">References</a></li>
+                        <li><a href="/problems" onclick="handleTabClick(event, this)">Problems</a></li>
+                        <li><a href="/stakeholders" onclick="handleTabClick(event, this)">Stakeholders</a></li>
+                        <li><a href="/constants" onclick="handleTabClick(event, this)">Constants</a></li>
+                        <li><a href="/claw" onclick="handleTabClick(event, this)">CLAW Tables</a></li>
+                        <li><a href="/nonclaw" onclick="handleTabClick(event, this)">Non-CLAW Tables</a></li>
+                        <li><a href="/annexure" onclick="handleTabClick(event, this)">CLAW/Annexure</a></li>
+                        <li><a href="/submit" onclick="handleTabClick(event, this)">Submit</a></li> 
+                    </ul>
+                </nav>
+            </div>
+            <h1>hi</h1>
+        </div>
+    </body>
+</html>

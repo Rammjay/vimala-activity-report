@@ -1,0 +1,49 @@
+<html>
+    <head>
+        
+    <style>
+        .container {
+            max-width: 80%;
+            margin: auto;
+            height: 85vh; 
+            background-color: rgb(169, 132, 132);
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 15px;
+            display: block;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            text-align: center;
+        }
+        .navbar a:hover {
+            background-color: rgb(101, 101, 101);
+        }
+        .navbar li {
+            flex-grow: 1;
+        }
+
+    </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="header">
+                <nav class="navbar" >
+                    <ul>
+                        <li class="selected"><a href="/" onclick="handleTabClick(event, this)">Build info</a></li>
+                        <li><a href="/references" onclick="handleTabClick(event, this)">References</a></li>
+                        <li><a href="/problems" onclick="handleTabClick(event, this)">Problems</a></li>
+                        <li><a href="/stakeholders" onclick="handleTabClick(event, this)">Stakeholders</a></li>
+                        <li><a href="/constants" onclick="handleTabClick(event, this)">Constants</a></li>
+                        <li><a href="/claw" onclick="handleTabClick(event, this)">CLAW Tables</a></li>
+                        <li><a href="/nonclaw" onclick="handleTabClick(event, this)">Non-CLAW Tables</a></li>
+                        <li><a href="/annexure" onclick="handleTabClick(event, this)">CLAW/Annexure</a></li>
+                        <li><a href="/submit" onclick="handleTabClick(event, this)">Submit</a></li> 
+                    </ul>
+                </nav>
+            </div>
+            <h1>hi</h1>
+        </div>
+    </body>
+</html>
